@@ -1037,6 +1037,8 @@ class SecurityGroup(object):
                 attr = 'id'
             elif filter_name == 'vpc-id':
                 attr = 'vpc_id'
+            elif filter_name == 'tag:Name':
+                attr = 'name'
             else:
                 attr = filter_name.replace('-', '_')
 
