@@ -22,8 +22,8 @@ class NetworkACLs(BaseResponse):
         cidr_block = self.querystring.get('CidrBlock')[0]
         icmp_code = self.querystring.get('Icmp.Code', [None])[0]
         icmp_type = self.querystring.get('Icmp.Type', [None])[0]
-        port_range_from = self.querystring.get('PortRange.From')[0]
-        port_range_to = self.querystring.get('PortRange.To')[0]
+        port_range_from = self.querystring.get('PortRange.From', [None])[0]
+        port_range_to = self.querystring.get('PortRange.To', [None])[0]
 
         network_acl_entry = self.ec2_backend.create_network_acl_entry(
             network_acl_id, rule_number, protocol, rule_action,
